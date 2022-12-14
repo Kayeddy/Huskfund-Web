@@ -37,9 +37,34 @@ contract Huskfunding {
         return campaignCount - 1;
     }
 
-    function donateToCampaign() {}
+    function donateToCampaign(uint256 _id) public payable {
+        uint256 amount = msg.value;
+        Campaign storage campaign = campaigns[_id];
+        campaign.donators.push(msg.sender);
+        campaign.donations.push(amount);
+        campaign.amountCollected += amount;
 
-    function getDonators() {}
+        /**Payable method returns two different values, so we add the comma on the left side to indicate that we may 
+        be expecting another value from the result of the result that comes from the right hand side**/
+        (bool sent,) = payable(campaign.owner).call{value: amount}("");
 
-    function getCampaigns() {}
+        if(sent) {
+            campaign.amountCollected = campaign.amountCollected + amount;
+        }
+    } 
+
+    function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory){
+        return(campaigns[_id].donators, campaigns[_id].donations);
+    }
+
+    function getCampaigns() public view returns(Campaign[] memory) {
+        Campaign[] memory allCampaigns = new Campaign[](campaignCount);
+
+        for(uint256 i = 0; i < campaignCount; i++) {
+            Campaign storage item = campaigns[i];
+            allCampaigns[i] = item;
+        }
+
+        return allCampaigns;
+    }
 }
