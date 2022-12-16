@@ -71,7 +71,7 @@ const Navbar = () => {
           alt="menu"
           className="w-[25px] h-[25px] object-contain cursor-pointer"
           onClick={() => {
-            setToggleDrawer(!toggleDrawer);
+            setToggleDrawer((prev) => !prev);
           }}
         />
 
