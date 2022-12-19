@@ -20,6 +20,16 @@ export const StateContextProvider = ({ props }) => {
   );
 
   const address = useAddress();
-
   const connect = useMetamask();
+
+  const publishCampaign = async (form) => {
+    const data = await createCampaign([
+      address, //address of the person who is creating the campaign
+      form.title, //title of the campaign
+      form.description, //description of the campaign
+      form.target, //target fund raise amount of the campaign
+      form.deadline, //deadline for raising funds for the campaign
+      form.image, //image representative of the campaign
+    ]);
+  };
 };
