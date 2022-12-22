@@ -34,8 +34,7 @@ const FundCard = ({
             className="w-[17px] h-[17px] object-contain"
           />
           <p className="ml-[12-x] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">
-            {" "}
-            Category{" "}
+            Category
           </p>
         </div>
         <div className="block">
@@ -53,8 +52,7 @@ const FundCard = ({
               Raised: {amountCollected}
             </h4>
             <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[#b2b3bd] sm:max-w-[120px] truncate">
-              {" "}
-              Out of {target}{" "}
+              Out of {target}
             </p>
           </div>
 
