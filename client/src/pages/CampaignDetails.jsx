@@ -49,7 +49,7 @@ const CampaignDetails = () => {
         </div>
       </div>
       <div className="mt-[60px] flex lg:flex-row flex-col gap-5">
-        <div className="flex-[2] flex flex-col gap-[40px]">
+        <div className="flex-1 flex flex-col gap-[40px]">
           <div className="">
             <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
               Creator
@@ -92,7 +92,7 @@ const CampaignDetails = () => {
           </div>
         </div>
 
-        <div className="flex-1 mt-4">
+        <div className="flex-1 mt-4 md:mt-0 md:w-full">
           <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
             Fund
           </h4>
