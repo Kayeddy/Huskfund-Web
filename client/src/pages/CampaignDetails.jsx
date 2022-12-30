@@ -21,7 +21,7 @@ const CampaignDetails = () => {
 
   return (
     <div>
-      {loading && "Loaading..."}
+      {loading && "Loading..."}
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
           <img
@@ -33,10 +33,7 @@ const CampaignDetails = () => {
             <div
               className="absolute h-full bg-[#4acd8d]"
               style={{
-                width: `${calculateBarPercentage(
-                  state.target,
-                  state.amountCollected
-                )}%`,
+                width: `${calculateBarPercentage(0.5, 0.1)}%`,
                 maxWidth: "100%",
               }}
             ></div>
