@@ -55,10 +55,6 @@ export const StateContextProvider = ({ children }) => {
     return parsedCampaigns;
   };
 
-  const getProjectsCount = async () => {
-    return data;
-  };
-
   return (
     <StateContext.Provider
       value={{
