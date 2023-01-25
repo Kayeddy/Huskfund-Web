@@ -13,7 +13,6 @@ const Home = () => {
     setLoading(true);
     const campaigns = await getCampaigns();
     setCampaigns(campaigns);
-    const projectCount = await getProjectsCount();
     setLoading(false);
   };
 
