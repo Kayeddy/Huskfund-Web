@@ -55,6 +55,38 @@ export const StateContextProvider = ({ children }) => {
     return parsedCampaigns;
   };
 
+  const getUserCampaigns = async () => {
+    const allCampaigns = await getCampaigns();
+
+    const filteredCampaigns = allCampaigns.filter(
+      (campaign) => campaign.owner === address
+    );
+
+    return filteredCampaigns;
+  };
+
+  const donateToCampaign = async (pid, amount) => {
+    const data = await contract.call("donateToCampaign", pid, address, amount);
+
+    return data;
+  };
+
+  const getDonations = async (pid) => {
+    const donations = await contract.call("getDonators", pid);
+    const numberOfDonations = donations[0].length;
+
+    const parsedDonations = [];
+
+    for (let index = 0; index < numberOfDonations; index++) {
+      parsedDonations.push({
+        donator: donations[0][index],
+        donation: ethers.utils.formatEther(donations[1][index]).toString(),
+      });
+    }
+
+    return parsedDonations;
+  };
+
   return (
     <StateContext.Provider
       value={{
